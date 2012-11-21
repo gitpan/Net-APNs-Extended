@@ -21,7 +21,7 @@ t/01_new.t
 t/02_send.t
 t/03_send_multi.t
 t/04_create_send_data.t
-t/05_retrive_error.t
+t/05_retrieve_error.t
 t/06_constants.t
 t/base/00_compile.t
 t/base/01_new.t

@@ -23,7 +23,6 @@ no_index:
     - xt
 requires:
   Class::Accessor::Lite: 0
-  Exporter::Constants: 0
   JSON::XS: 0
   Net::SSLeay: 0
   parent: 0
@@ -32,4 +31,4 @@ resources:
   bugtracker: http://github.com/xaicron/p5-Net-APNs-Extended/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/xaicron/p5-Net-APNs-Extended/
-version: 0.03
+version: 0.04

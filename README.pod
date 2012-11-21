@@ -3,29 +3,36 @@ package Net::APNs::Extended;
 use strict;
 use warnings;
 use 5.008_001;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use parent qw(Exporter Net::APNs::Extended::Base);
-
 use Carp qw(croak);
 
-our @EXPORT_OK;
+use constant {
+    NO_ERRORS            => 0,
+    PROCESSING_ERROR     => 1,
+    MISSING_DEVICE_TOKEN => 2,
+    MISSING_TOPIC        => 3,
+    MISSING_PAYLOAD      => 4,
+    INVALID_TOKEN_SIZE   => 5,
+    INVALID_TOPIC_SIZE   => 6,
+    INVALID_PAYLOAD_SIZE => 7,
+    INVALID_TOKEN        => 8,
+    UNKNOWN_ERROR        => 255,
+};
 
-use Exporter::Constants (
-    \@EXPORT_OK => {
-        NO_ERRORS            => 0,
-        PROCESSING_ERROR     => 1,
-        MISSING_DEVICE_TOKEN => 2,
-        MISSING_TOPIC        => 3,
-        MISSING_PAYLOAD      => 4,
-        INVALID_TOKEN_SIZE   => 5,
-        INVALID_TOPIC_SIZE   => 6,
-        INVALID_PAYLOAD_SIZE => 7,
-        INVALID_TOKEN        => 8,
-        UNKNOWN_ERROR        => 255,
-    },
-);
-
+our @EXPORT_OK = qw{
+    NO_ERRORS
+    PROCESSING_ERROR
+    MISSING_DEVICE_TOKEN
+    MISSING_TOPIC
+    MISSING_PAYLOAD
+    INVALID_TOKEN_SIZE
+    INVALID_TOPIC_SIZE
+    INVALID_PAYLOAD_SIZE
+    INVALID_TOKEN
+    UNKNOWN_ERROR
+};
 our %EXPORT_TAGS = (constants => \@EXPORT_OK);
 
 __PACKAGE__->mk_accessors(qw[
@@ -78,7 +85,7 @@ sub send_multi {
     return $self->_send($data) ? 1 : 0;
 }
 
-sub retrive_error {
+sub retrieve_error {
     my $self = shift;
     my $data = $self->_read || return;
     my ($command, $status, $identifier) = unpack 'C C L', $data;
@@ -91,6 +98,7 @@ sub retrive_error {
     $self->disconnect;
     return $error;
 }
+*retrive_error = *retrieve_error;
 
 sub _create_send_data {
     my ($self, $device_token, $payload, $extra) = @_;
@@ -174,7 +182,7 @@ Net::APNs::Extended - Client library for APNs that support the extended format.
   });
 
   # if you want to handle the error
-  if (my $error = $apns->retrive_error) {
+  if (my $error = $apns->retrieve_error) {
       die Dumper $error;
   }
 
@@ -237,11 +245,11 @@ Send notification for APNs.
 
 Send notification for each data. The data chunk is same as C<< send() >> arguments.
 
-=head2 $apns->retrive_error()
+=head2 $apns->retrieve_error()
 
 Gets error data from APNs. If there is no error will not return anything.
 
-  if (my $error = $apns->retrive_error) {
+  if (my $error = $apns->retrieve_error) {
       die Dumper $error;
   }
 
