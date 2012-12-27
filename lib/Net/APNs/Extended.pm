@@ -3,7 +3,7 @@ package Net::APNs::Extended;
 use strict;
 use warnings;
 use 5.008_001;
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use parent qw(Exporter Net::APNs::Extended::Base);
 use Carp qw(croak);
@@ -255,7 +255,7 @@ Gets error data from APNs. If there is no error will not return anything.
 
 =head1 AUTHOR
 
-xaicron E<lt>xaicron {at} cpan.orgE<gt>
+xaicron E<lt>xaicron {@} cpan.orgE<gt>
 
 =head1 COPYRIGHT
 
