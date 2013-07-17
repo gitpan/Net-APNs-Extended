@@ -3,7 +3,7 @@ package Net::APNs::Extended;
 use strict;
 use warnings;
 use 5.008_001;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use parent qw(Exporter Net::APNs::Extended::Base);
 use Carp qw(croak);
@@ -87,12 +87,14 @@ sub send_multi {
 
 sub retrieve_error {
     my $self = shift;
-    my $data = $self->_read || return;
+    my $data = $self->_read;
+    return unless defined $data;
+
     my ($command, $status, $identifier) = unpack 'C C L', $data;
     my $error = {
-        command    => $command,
-        status     => $status,
-        identifier => $identifier,
+        command    => $command    || 8,
+        status     => $status     || PROCESSING_ERROR,
+        identifier => $identifier || 0,
     };
 
     $self->disconnect;

@@ -1,14 +1,16 @@
 ---
 abstract: 'Client library for APNs that support the extended format.'
 author:
-  - 'xaicron E<lt>xaicron {@} cpan.orgE<gt>'
+  - 'xaicron <xaicron {@} cpan.org>'
 build_requires:
   Test::Mock::Guard: 0.08
   Test::More: 0.98
 configure_requires:
+  CPAN::Meta: 0
+  CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Minilla/v0.5.6, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,19 +18,21 @@ meta-spec:
 name: Net-APNs-Extended
 no_index:
   directory:
-    - inc
     - t
     - xt
+    - inc
+    - share
+    - eg
+    - examples
+    - author
 provides:
   Net::APNs::Extended:
     file: lib/Net/APNs/Extended.pm
-    version: 0.05
+    version: 0.06
   Net::APNs::Extended::Base:
     file: lib/Net/APNs/Extended/Base.pm
-    version: 0
   Net::APNs::Extended::Feedback:
     file: lib/Net/APNs/Extended/Feedback.pm
-    version: 0
 requires:
   Class::Accessor::Lite: 0
   JSON::XS: 0
@@ -36,5 +40,9 @@ requires:
   parent: 0
   perl: 5.008001
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.05
+  bugtracker: https://github.com/xaicron/p5-Net-APNs-Extended/issues
+  homepage: https://github.com/xaicron/p5-Net-APNs-Extended
+  repository: git://github.com/xaicron/p5-Net-APNs-Extended.git
+version: 0.06
+x_contributors:
+  - 'xaicron <xaicron@gmail.com>'
