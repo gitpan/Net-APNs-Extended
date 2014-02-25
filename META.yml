@@ -29,7 +29,7 @@ no_index:
 provides:
   Net::APNs::Extended:
     file: lib/Net/APNs/Extended.pm
-    version: 0.08
+    version: 0.09
   Net::APNs::Extended::Base:
     file: lib/Net/APNs/Extended/Base.pm
   Net::APNs::Extended::Feedback:
@@ -44,7 +44,7 @@ resources:
   bugtracker: https://github.com/xaicron/p5-Net-APNs-Extended/issues
   homepage: https://github.com/xaicron/p5-Net-APNs-Extended
   repository: git://github.com/xaicron/p5-Net-APNs-Extended.git
-version: 0.08
+version: 0.09
 x_contributors:
   - 'Syohei YOSHIDA <syohex@gmail.com>'
-  - 'xaicron <xaicron@gmail.com>'
+  - 'Yuji Shimada <xaicron@gmail.com>'
