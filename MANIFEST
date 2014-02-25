@@ -21,12 +21,5 @@ t/base/02_accessors.t
 t/base/03_hostname.t
 t/feedback/01_new.t
 t/feedback/02_retrive_feedback.t
-xt/02_pod.t
-xt/03_pod-coverage.t
-xt/04_perlcritic.t
-xt/05_script-shebang.t
-xt/07_minimum_version.t
-xt/08_cpan_meta.t
-xt/perlcriticrc
 META.yml
 MANIFEST

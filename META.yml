@@ -10,7 +10,7 @@ configure_requires:
   CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Minilla/v0.5.6, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Minilla/v0.11.0, CPAN::Meta::Converter version 2.133380'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,10 +25,11 @@ no_index:
     - eg
     - examples
     - author
+    - builder
 provides:
   Net::APNs::Extended:
     file: lib/Net/APNs/Extended.pm
-    version: 0.07
+    version: 0.08
   Net::APNs::Extended::Base:
     file: lib/Net/APNs/Extended/Base.pm
   Net::APNs::Extended::Feedback:
@@ -43,7 +44,7 @@ resources:
   bugtracker: https://github.com/xaicron/p5-Net-APNs-Extended/issues
   homepage: https://github.com/xaicron/p5-Net-APNs-Extended
   repository: git://github.com/xaicron/p5-Net-APNs-Extended.git
-version: 0.07
+version: 0.08
 x_contributors:
   - 'Syohei YOSHIDA <syohex@gmail.com>'
-  - 'Yuji Shimada <xaicron@gmail.com>'
+  - 'xaicron <xaicron@gmail.com>'
