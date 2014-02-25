@@ -60,7 +60,7 @@
    "provides" : {
       "Net::APNs::Extended" : {
          "file" : "lib/Net/APNs/Extended.pm",
-         "version" : "0.09"
+         "version" : "0.10"
       },
       "Net::APNs::Extended::Base" : {
          "file" : "lib/Net/APNs/Extended/Base.pm"
@@ -80,9 +80,9 @@
          "web" : "https://github.com/xaicron/p5-Net-APNs-Extended"
       }
    },
-   "version" : "0.09",
+   "version" : "0.10",
    "x_contributors" : [
       "Syohei YOSHIDA <syohex@gmail.com>",
-      "Yuji Shimada <xaicron@gmail.com>"
+      "xaicron <xaicron@gmail.com>"
    ]
 }

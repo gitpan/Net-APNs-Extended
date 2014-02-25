@@ -3,7 +3,7 @@ package Net::APNs::Extended;
 use strict;
 use warnings;
 use 5.008_001;
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use parent qw(Exporter Net::APNs::Extended::Base);
 use Carp qw(croak);
@@ -18,6 +18,7 @@ use constant {
     INVALID_TOPIC_SIZE   => 6,
     INVALID_PAYLOAD_SIZE => 7,
     INVALID_TOKEN        => 8,
+    SHUTDOWN             => 10,
     UNKNOWN_ERROR        => 255,
 };
 
@@ -31,6 +32,7 @@ our @EXPORT_OK = qw{
     INVALID_TOPIC_SIZE
     INVALID_PAYLOAD_SIZE
     INVALID_TOKEN
+    SHUTDOWN
     UNKNOWN_ERROR
 };
 our %EXPORT_TAGS = (constants => \@EXPORT_OK);
@@ -92,9 +94,9 @@ sub retrieve_error {
 
     my ($command, $status, $identifier) = unpack 'C C L', $data;
     my $error = {
-        command    => $command    || 8,
-        status     => $status     || PROCESSING_ERROR,
-        identifier => $identifier || 0,
+        command    => $command,
+        status     => $status,
+        identifier => $identifier,
     };
 
     $self->disconnect;
